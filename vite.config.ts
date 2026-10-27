@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/Site-de-Prospec-o/', // Propriedade base adicionada com o nome do seu repositório
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
