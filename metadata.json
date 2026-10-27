@@ -1,0 +1,6 @@
+{
+  "name": "ProspecFor - Prospecção Inteligente de Fornecedores",
+  "description": "Painel avançado de inteligência cadastral e prospecção de fornecedores via CNPJ, com cruzamento de dados públicos, análise de saúde financeira e mapa georreferenciado.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

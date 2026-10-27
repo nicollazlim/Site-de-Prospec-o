@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* Leaflet Dark Mode Customization */
+.leaflet-container {
+  background-color: #020617 !important;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #0f172a !important;
+  color: #94a3b8 !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.leaflet-control-attribution {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+  color: #64748b !important;
+  font-size: 10px !important;
+  backdrop-filter: blur(4px);
+}
+
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060a14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #25334d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* High-contrast Blue Scrollbar for CNAE dropdowns & filter panels */
+.cnae-scrollbar {
+  scrollbar-width: thin !important;
+  scrollbar-color: #3b82f6 #070c18 !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+}
+
+.cnae-scrollbar::-webkit-scrollbar {
+  width: 9px !important;
+  height: 9px !important;
+  display: block !important;
+}
+
+.cnae-scrollbar::-webkit-scrollbar-track {
+  background: #070c18 !important;
+  border-radius: 6px !important;
+  border: 1px solid #1e293b !important;
+}
+
+.cnae-scrollbar::-webkit-scrollbar-thumb {
+  background: #3b82f6 !important;
+  border-radius: 6px !important;
+  border: 1.5px solid #1d4ed8 !important;
+}
+
+.cnae-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa !important;
+}
+
+/* Marker pulse animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.pulse-marker-active {
+  animation: pulse-ring 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Leaflet Markers - Impede que o hover sobrescreva o translate3d nativo de posicionamento */
+.leaflet-marker-icon {
+  transition: none !important;
+}
+
+.leaflet-marker-icon:hover {
+  z-index: 9999 !important;
+}
+
+/* Cluster Marker Inner Element Hover (Escala suave e estável sem salto ou tremor) */
+.cluster-badge-inner {
+  transform-origin: center center;
+  transition: transform 0.12s ease-out, filter 0.12s ease-out;
+  will-change: transform;
+  pointer-events: auto;
+}
+
+.map-cluster-marker:hover .cluster-badge-inner {
+  transform: scale(1.06);
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.6));
+}
+
+/* Pin Individual - Escala suave apenas no elemento interno */
+.supplier-pin-inner {
+  transform-origin: center center;
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+  pointer-events: auto;
+}
+
+.supplier-pin-inner:hover {
+  transform: scale(1.1);
+}
+
+/* Tooltip do Leaflet com pointer-events desativado para nunca bloquear cliques ou hover */
+.leaflet-tooltip {
+  pointer-events: none !important;
+}
